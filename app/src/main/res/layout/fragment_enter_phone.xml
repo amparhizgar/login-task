@@ -44,6 +44,11 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:title="@string/app_name"
+        android:background="?colorPrimary"
+        app:titleTextColor="?colorOnPrimary"
+        app:navigationIcon="@drawable/ic_round_arrow_back_24"
+        app:navigationIconTint="?colorOnPrimary"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton

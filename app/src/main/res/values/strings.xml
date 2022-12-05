@@ -6,4 +6,6 @@
     <string name="hamrah_prefix">0912</string>
     <string name="phone_number">Phone number</string>
     <string name="sign_in">sign-in</string>
+    <string name="enter_otp">Enter the otp</string>
+    <string name="otp_sent">OTP sent to %s</string>
 </resources>

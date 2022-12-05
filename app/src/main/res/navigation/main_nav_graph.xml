@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="ir.amirhparhizgar.logintask.ui.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_enterPhoneFragment"
+            app:destination="@id/enterPhoneFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/enterPhoneFragment"
+        android:name="ir.amirhparhizgar.logintask.ui.EnterPhoneFragment"
+        android:label="fragment_enter_phone"
+        tools:layout="@layout/fragment_enter_phone">
+        <action
+            android:id="@+id/action_enterPhoneFragment_to_enterOTPFragment"
+            app:destination="@id/enterOTPFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/enterOTPFragment"
+        android:name="ir.amirhparhizgar.logintask.ui.EnterOTPFragment"
+        android:label="fragment_enter_o_t_p"
+        tools:layout="@layout/fragment_enter_o_t_p">
+        <action
+            android:id="@+id/action_enterOTPFragment_to_helloFragment"
+            app:destination="@id/helloFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/helloFragment"
+        android:name="ir.amirhparhizgar.logintask.ui.HelloFragment"
+        android:label="fragment_hello"
+        tools:layout="@layout/fragment_hello" />
+</navigation>

@@ -8,4 +8,5 @@
     <string name="sign_in">sign-in</string>
     <string name="enter_otp">Enter the otp</string>
     <string name="otp_sent">OTP sent to %s</string>
+    <string name="hello">Hello</string>
 </resources>

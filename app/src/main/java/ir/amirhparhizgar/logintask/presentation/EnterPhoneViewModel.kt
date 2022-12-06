@@ -5,14 +5,17 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ir.amirhparhizgar.logintask.R
+import ir.amirhparhizgar.logintask.data.local.Repository
 import javax.inject.Inject
+import kotlin.random.Random
 
 /**
  * Created by AmirHossein Parhizgar on 12/5/2022.
  */
 @HiltViewModel
 class EnterPhoneViewModel @Inject constructor(
-    val stateHandle: SavedStateHandle
+    val stateHandle: SavedStateHandle,
+    val repository: Repository,
 ) : ViewModel() {
 
     @StringRes
@@ -25,13 +28,19 @@ class EnterPhoneViewModel @Inject constructor(
     }
 
     fun isPhoneValid(phone: String): Boolean {
-        val trimmedPhone = phone.trim()
-        trimmedPhone.toIntOrNull() ?: return false
-        if (trimmedPhone.length != 11)
+        phone.toLongOrNull() ?: return false
+        if (phone.length != 11)
             return false
-        val prefix = trimmedPhone.substring(0, 4).toInt()
+        val prefix = phone.substring(0, 4).toInt()
         if (prefix < 911 || prefix > 918)
             return false
         return true
+    }
+
+    fun savePhone(phone: String) {
+        repository.savePhone(phone)
+        val otp = Random.nextInt(from = 0, until =  1_0000)
+        println(otp)
+        repository.saveOTP(otp)
     }
 }

@@ -4,6 +4,8 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import ir.amirhparhizgar.logintask.data.local.Repository
+import ir.amirhparhizgar.logintask.data.local.SMSSender
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -15,11 +17,15 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class EnterOTPViewModel @Inject constructor(
-    val stateHandle: SavedStateHandle
+    val stateHandle: SavedStateHandle,
+    val repository: Repository,
+    val smsSender: SMSSender,
 ) : ViewModel() {
     companion object {
         private const val OTP_RESEND_DURATION: Long = 30_000L
     }
+
+    val userAuth = repository.getPhoneAndOTPOrThrow()
 
     private var otpSentTime: Long = System.currentTimeMillis()
 
@@ -32,7 +38,10 @@ class EnterOTPViewModel @Inject constructor(
     }
 
     private fun sendOTP() {
-        // TODO send OTP
+        viewModelScope.launch {
+            val otpString = "%04d".format(repository.getPhoneAndOTPOrThrow().oTP)
+            smsSender.sendOTP(otpString, repository.getPhoneAndOTPOrThrow().phone)
+        }
     }
 
     fun onResendClicked() {

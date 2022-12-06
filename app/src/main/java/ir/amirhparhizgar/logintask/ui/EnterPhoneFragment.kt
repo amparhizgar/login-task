@@ -17,7 +17,7 @@ class EnterPhoneFragment : ViewBindingFragment<FragmentEnterPhoneBinding>() {
         const val EXTRA_PHONE_NUMBER = "phone_number"
     }
 
-    val viewModel: EnterPhoneViewModel by viewModels()
+    private val viewModel: EnterPhoneViewModel by viewModels()
 
     override fun getViewBindingInflater(): ViewBindingInflater<FragmentEnterPhoneBinding> =
         FragmentEnterPhoneBinding::inflate
@@ -30,6 +30,7 @@ class EnterPhoneFragment : ViewBindingFragment<FragmentEnterPhoneBinding>() {
             }
             btnSignIn.isEnabled = false
             btnSignIn.setOnClickListener {
+                viewModel.savePhone(etPhone.text.toString())
                 findNavController().navigate(R.id.action_enterPhoneFragment_to_enterOTPFragment, Bundle().apply {
                     putString(EXTRA_PHONE_NUMBER, etPhone.text.toString())
                 })

@@ -12,4 +12,5 @@
     <string name="phone_blank">Phone is blank</string>
     <string name="phone_invalid">Phone is invalid</string>
     <string name="resend">Resend</string>
+    <string name="otp_wrong">OTP is wrong</string>
 </resources>

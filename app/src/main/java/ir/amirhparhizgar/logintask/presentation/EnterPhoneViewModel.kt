@@ -26,15 +26,12 @@ class EnterPhoneViewModel @Inject constructor(
 
     fun isPhoneValid(phone: String): Boolean {
         val trimmedPhone = phone.trim()
+        trimmedPhone.toIntOrNull() ?: return false
         if (trimmedPhone.length != 11)
             return false
         val prefix = trimmedPhone.substring(0, 4).toInt()
         if (prefix < 911 || prefix > 918)
             return false
         return true
-    }
-
-    fun onSendClicked(text: String) {
-      // TODO: send OTP
     }
 }

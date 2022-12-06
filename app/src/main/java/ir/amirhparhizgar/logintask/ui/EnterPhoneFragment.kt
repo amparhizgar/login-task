@@ -25,6 +25,9 @@ class EnterPhoneFragment : ViewBindingFragment<FragmentEnterPhoneBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
+            toolbar.setNavigationOnClickListener {
+                requireActivity().finish()
+            }
             btnSignIn.isEnabled = false
             btnSignIn.setOnClickListener {
                 findNavController().navigate(R.id.action_enterPhoneFragment_to_enterOTPFragment, Bundle().apply {
@@ -34,10 +37,6 @@ class EnterPhoneFragment : ViewBindingFragment<FragmentEnterPhoneBinding>() {
             etPhone.doOnTextChanged { text, _, _, _ ->
                 tlPhone.error = viewModel.getMessage(text.toString())?.let { getString(it) }
                 btnSignIn.isEnabled = viewModel.isPhoneValid(text.toString())
-            }
-            btnSignIn.setOnClickListener {
-                viewModel.onSendClicked(etPhone.text.toString())
-                findNavController().navigate(R.id.action_enterPhoneFragment_to_enterOTPFragment)
             }
         }
     }

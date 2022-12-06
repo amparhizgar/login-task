@@ -11,4 +11,5 @@
     <string name="hello">Hello</string>
     <string name="phone_blank">Phone is blank</string>
     <string name="phone_invalid">Phone is invalid</string>
+    <string name="resend">Resend</string>
 </resources>

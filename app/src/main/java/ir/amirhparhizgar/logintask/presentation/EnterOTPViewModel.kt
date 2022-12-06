@@ -28,6 +28,11 @@ class EnterOTPViewModel @Inject constructor(
 
     init {
         startEmittingRemainingTime()
+        sendOTP()
+    }
+
+    private fun sendOTP() {
+        // TODO send OTP
     }
 
     fun onResendClicked() {
@@ -37,16 +42,16 @@ class EnterOTPViewModel @Inject constructor(
         viewModelScope.launch {
             _timeToSendAgain.emit(OTP_RESEND_DURATION.toInt() / 1000)
         }
-        // TODO resend
+        sendOTP()
     }
 
     private fun startEmittingRemainingTime() {
         viewModelScope.launch {
             while (true) { // it will exit when viewModelScope finishes
                 val timeBeforeNextSend =
-                    (System.currentTimeMillis() - otpSentTime + OTP_RESEND_DURATION).toInt() / 1000
+                    (otpSentTime - System.currentTimeMillis() + OTP_RESEND_DURATION).toInt() / 1000
                 _timeToSendAgain.emit(timeBeforeNextSend.coerceAtLeast(0))
-                delay(1000)
+                delay(1_000)
             }
         }
     }

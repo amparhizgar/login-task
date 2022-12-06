@@ -9,4 +9,6 @@
     <string name="enter_otp">Enter the otp</string>
     <string name="otp_sent">OTP sent to %s</string>
     <string name="hello">Hello</string>
+    <string name="phone_blank">Phone is blank</string>
+    <string name="phone_invalid">Phone is invalid</string>
 </resources>

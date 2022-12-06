@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import ir.amirhparhizgar.logintask.R
 import ir.amirhparhizgar.logintask.databinding.FragmentSplashBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class SplashFragment : ViewBindingFragment<FragmentSplashBinding>() {
 
     override fun getViewBindingInflater(): ViewBindingInflater<FragmentSplashBinding> =

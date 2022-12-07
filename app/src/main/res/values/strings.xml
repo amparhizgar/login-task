@@ -1,14 +1,14 @@
 <resources>
     <string name="app_name">Login Task</string>
-    <string name="logo">Logo</string>
+    <string name="logo" translatable="false">Logo</string>
     <string name="login_or_signup">login | signup</string>
     <string name="please_enter_phone">Please enter your phone number</string>
-    <string name="hamrah_prefix">0912</string>
+    <string name="hamrah_prefix" translatable="false">0912</string>
     <string name="phone_number">Phone number</string>
     <string name="sign_in">sign-in</string>
     <string name="enter_otp">Enter the otp</string>
     <string name="otp_sent">OTP sent to %s</string>
-    <string name="hello">Hello</string>
+    <string name="hello" translatable="false">Hello</string>
     <string name="phone_blank">Phone is blank</string>
     <string name="phone_invalid">Phone is invalid</string>
     <string name="resend">Resend</string>

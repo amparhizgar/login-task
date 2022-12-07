@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Login Task</string>
+    <string name="login_or_signup">ورود | ثبت نام</string>
+    <string name="please_enter_phone">لطفاً شماره تلفن خود را وارد کنید</string>
+    <string name="phone_number">شماره تلفن</string>
+    <string name="sign_in">ورود</string>
+    <string name="enter_otp">کد تایید را وارد کنید</string>
+    <string name="otp_sent">کد تایید برای شماره %s پیامک شد</string>
+    <string name="phone_blank">لطفا شماره موبایل خود را وارد کنید</string>
+    <string name="phone_invalid">شماره موبایل اشتباه است</string>
+    <string name="resend">ارسال مجدد</string>
+    <string name="otp_wrong">کد تایید اشتباه است</string>
+</resources>

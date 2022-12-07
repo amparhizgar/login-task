@@ -25,7 +25,7 @@ android {
             buildConfigField 'String', "PAYAMRESAN_PASSWORD", PAYAMRESAN_PASSWORD
         }
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField 'String', "PAYAMRESAN_USERNAME", PAYAMRESAN_USERNAME
             buildConfigField 'String', "PAYAMRESAN_PASSWORD", PAYAMRESAN_PASSWORD

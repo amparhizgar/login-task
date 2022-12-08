@@ -5,6 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import ir.amirhparhizgar.logintask.data.local.Repository
+import ir.amirhparhizgar.logintask.data.local.RepositoryImpl
 import ir.amirhparhizgar.logintask.data.remote.RetrofitHelper
 import ir.amirhparhizgar.logintask.data.remote.SMSApi
 import javax.inject.Singleton
@@ -19,7 +20,7 @@ abstract class AppModule {
     companion object {
         @Provides
         @Singleton
-        fun provideRepository() = Repository()
+        fun provideRepository(): Repository = RepositoryImpl()
 
         @Provides
         @Singleton

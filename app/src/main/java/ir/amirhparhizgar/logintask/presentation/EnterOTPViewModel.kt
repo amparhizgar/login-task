@@ -40,7 +40,9 @@ class EnterOTPViewModel @Inject constructor(
     private fun sendOTP() {
         viewModelScope.launch {
             val otpString = "%04d".format(repository.getPhoneAndOTPOrThrow().oTP)
-            smsSender.sendOTP(otpString, repository.getPhoneAndOTPOrThrow().phone)
+            runCatching {
+                smsSender.sendOTP(otpString, repository.getPhoneAndOTPOrThrow().phone)
+            }
         }
     }
 
